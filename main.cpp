@@ -3,60 +3,58 @@
 #include "Parser.h"
 #include "Interpreter.h"
 
-int main(int argc, char* argv[]) {
+// int main(int argc, char* argv[]) {
 
-  vector<Token> myTokens;
+//   vector<Token> myTokens;
   
-  string fileName = argv[1];
+//   string fileName = argv[1];
   
-  Token t;
+//   Token t;
 
-  Scanner s = Scanner(s.ReadFile(fileName));
+//   Scanner s = Scanner(s.ReadFile(fileName));
 
-  while(!(t.checkEnd())) {
-    t = s.scanToken();
-    myTokens.push_back(t);
+//   while(!(t.checkEnd())) {
+//     t = s.scanToken();
+//     myTokens.push_back(t);
 
-  }
+//   }
 
-  Parser p = Parser(myTokens);
+//   Parser p = Parser(myTokens);
 
-  p.removeComment();
+//   p.removeComment();
 
-  p.datalogProgram();
+//   p.datalogProgram();
 
-  Interpreter i(p.getDataLog());
-  
-  i.evalAllRules();
+//   Interpreter i(p.getDataLog());
+//   i.evalQueries();
 
-  i.evalAllQueries();
+//   return 0;
 
-  return 0;
-
-}
-
-
-// int main() {
-
-//   Relation studentRelation("students", Scheme( {"ID", "Name", "Major"} ));
-
-//   vector<string> studentValues[] = {
-//     {"'42'", "'Ann'", "'CS'"},
-//     {"'64'", "'Ned'", "'EE'"},
-//   };
-
-//   for (auto& value : studentValues)
-//     studentRelation.addTuple(Tuple(value));
-
-//   Relation courseRelation("courses", Scheme( {"ID", "Course"} ));
-
-//   vector<string> courseValues[] = {
-//     {"'42'", "'CS 100'"},
-//     {"'32'", "'CS 232'"},
-//   };
-
-//   for (auto& value : courseValues)
-//     courseRelation.addTuple(Tuple(value));
-
-//   studentRelation.join(courseRelation);
 // }
+
+// This is Debug
+
+int main() {
+
+  Relation studentRelation("students", Scheme( {"ID", "Name", "Major"} ));
+
+  vector<string> studentValues[] = {
+    {"'42'", "'Ann'", "'CS'"},
+    {"'64'", "'Ned'", "'EE'"},
+  };
+
+  for (auto& value : studentValues)
+    studentRelation.addTuple(Tuple(value));
+
+  Relation courseRelation("courses", Scheme( {"ID", "Course"} ));
+
+  vector<string> courseValues[] = {
+    {"'42'", "'CS 100'"},
+    {"'32'", "'CS 232'"},
+  };
+
+  for (auto& value : courseValues)
+    courseRelation.addTuple(Tuple(value));
+
+  studentRelation.join(courseRelation);
+}

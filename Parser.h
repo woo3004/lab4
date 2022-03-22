@@ -208,7 +208,6 @@ class Parser {
             predicateList();
             match(PERIOD);
             r.addRuleVec(r);
-            date.addRule(r);
             pred.getParameter().clear();
             r.getRuleSet().clear();
         } else {
@@ -305,7 +304,7 @@ class Parser {
         //     cout << "Failure!" << endl;
         //     cout << "  " << errToken.toString() << endl;
         // }
-        date.setRule(r);
+
 
     }
 
