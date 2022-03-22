@@ -11,6 +11,8 @@ class Datalog {
         vector<Predicate> fact_set;
         vector<Predicate> query_set;
         set<string> domain_list;
+        vector<Rule> rule_set;
+        Rule r;
 
     public:
         void addScheme(Predicate pre) {
@@ -26,6 +28,22 @@ class Datalog {
 
         void addQuery(Predicate pre) {
             query_set.push_back(pre);
+        }
+
+        void addRule(Rule r) {
+            rule_set.push_back(r);
+        }
+
+        void setRule(Rule rule) {
+            r = rule;
+        }
+
+        Rule getRule() {
+            return r;
+        }
+
+        vector<Rule>& getRuleSet() {
+            return rule_set;
         }
 
         vector<Predicate>& getSchemeSet() {
